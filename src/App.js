@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import React from "react";
 import "./App.css";
 import "././assets/ylös.svg";
 import "././assets/oikea.svg";
@@ -10,12 +9,6 @@ var arrows = ["1", "2", "3"];
 class App extends Component {
   constructor(props) {
     super(props);
-  }
-  
-  renderSquare() {
-    return <Square 
-    value={this.state} 
-    onClick={() => this.handleClick()} />;
   }
   handleClick(i) {
     const Square = this.state.();
@@ -36,8 +29,7 @@ class App extends Component {
         </body>
       </div>
     );
-  }
+
 }
 
-console.log(arrows[1]);
 export default App;
