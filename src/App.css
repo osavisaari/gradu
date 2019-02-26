@@ -1,6 +1,6 @@
 .square-container {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   /* margin-top: 700 px; */
   /* justify-content: flex-end; */
@@ -19,9 +19,15 @@
   width: 100px;
   height: 100px;
 }
-.image {
+.img {
   z-index: 1;
+  background: url(A.png);
   margin: auto;
-  width: 100px;
-  height: 00px;
+  width: auto;
+  height: auto;
+}
+.p {
+  align-self: center;
+  margin: auto;
+  padding: auto;
 }
