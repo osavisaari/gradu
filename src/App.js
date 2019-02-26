@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import "././assets/ylös.svg";
-import "././assets/oikea.svg";
-import "././assets/vasen.svg";
+/*import "./assets/ylös.svg";
+import "./assets/oikea.svg";
+import "./assets/vasen.svg";
+miten mä tuon fiksusti kaikki tarvittavat ärsykekuvat tähän?
+Tarttis helpon tavan tuoda kansion sisältö yhteen arrayyn */
 
 class App extends Component {
   state = { label: this.state };
