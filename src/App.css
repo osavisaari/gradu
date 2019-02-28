@@ -1,32 +1,48 @@
-.square-container {
+.cards {
   display: flex;
   flex-direction: column;
-
-  /* margin-top: 700 px; */
-  /* justify-content: flex-end; */
+  background-color: white;
+  height: auto;
+  width: auto;
+  align-items: flex-end;
+  grid-template-areas: "left middle right";
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card {
+  margin: 5px;
 }
 .square {
-  position: absolute;
-  align-self: auto;
-  margin: 45% 0% 0% 5%;
+  display: flex;
+  /*  align-self: auto;*/
+  justify-content: center;
   width: 150px;
   height: 150px;
   fill: white;
   border: 2px solid black;
   z-index: 0;
 }
+.square-container {
+  margin: 0 0 50px 50px;
+  display: flex;
+  flex-direction: column;
+}
 
 .arrow {
   width: 100px;
   height: 100px;
 }
-.img {
+/*.img {
   z-index: 1;
   background: url(A.png);
   margin: auto;
   width: auto;
   height: auto;
-}
+}*/
 .p {
   align-self: center;
   margin: auto;
