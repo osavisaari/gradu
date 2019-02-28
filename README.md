@@ -13,3 +13,6 @@ Kokeen aikana suoritetaan kahta tehtävää:
 - ESC vaihtaa alakulmassa olevaa nuolta
 - Keyboard UP ylös osoittavan nuolen kohdalla tulkitaan oikeaksi vastaukseksi -> nuoli häviää
 - ESCillä saa uuden nuolen näkyviin
+
+
+haloo
