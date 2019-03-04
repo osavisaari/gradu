@@ -25,21 +25,26 @@ class App extends Component {
   };
 
   handleKeyDown = event => {
+    // eslint-disable-next-line
     switch (event.keyCode) {
       case ESCAPE_KEY:
         this.addArrow();
         break;
       case UP:
         this.handleUp();
+        console.log();
         break;
       case DOWN:
         this.handleDown();
+        console.log();
         break;
       case LEFT:
         this.handleLeft();
+        console.log();
         break;
       case RIGHT:
         this.handleRight();
+        console.log();
         break;
     }
   };
@@ -53,13 +58,36 @@ class App extends Component {
   }
 
   handleUp = () => {
+    console.log();
     if (this.state.suunta === ylös) {
       this.setState({ suunta: null });
+      this.primaryInterval();
     }
   };
-
-  handleClick = () => {
-    this.setState({ suunta: null });
+  handleRight = () => {
+    console.log();
+    if (this.state.suunta === oikea) {
+      this.setState({ suunta: null });
+      this.primaryInterval();
+    }
+  };
+  handleDown = () => {
+    console.log();
+    if (this.state.suunta === alas) {
+      this.setState({ suunta: null });
+      this.primaryInterval();
+    }
+  };
+  handleLeft = () => {
+    console.log();
+    if (this.state.suunta === vasen) {
+      this.setState({ suunta: null });
+      this.primaryInterval();
+    }
+  };
+  primaryInterval = () => {
+    setTimeout(this.addArrow(), 10000, []);
+    console.log();
   };
 
   addArrow = () => {
@@ -69,6 +97,7 @@ class App extends Component {
   };
 
   render() {
+    console.log();
     return (
       <div className="container">
         <div className="cards">
@@ -79,7 +108,7 @@ class App extends Component {
           <img src={E} className="card" alt="E" />
         </div>
         <div className="square-container">
-          <div className="square" onClick={this.handleClick}>
+          <div className="square">
             {this.state.suunta && <img src={this.state.suunta} alt="arrow" />}
           </div>
         </div>
