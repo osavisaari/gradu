@@ -32,25 +32,23 @@ class App extends Component {
         break;
       case UP:
         this.handleUp();
-        console.log();
         break;
       case DOWN:
         this.handleDown();
-        console.log();
         break;
       case LEFT:
         this.handleLeft();
-        console.log();
         break;
       case RIGHT:
         this.handleRight();
-        console.log();
         break;
     }
   };
 
   componentDidMount() {
     document.addEventListener("keydown", this.handleKeyDown);
+    //    const intervalId = setInterval(this.timer, 1000);
+    //    this.setState({ intervalId: intervalId });
   }
 
   componentWillUnmount() {
@@ -58,46 +56,42 @@ class App extends Component {
   }
 
   handleUp = () => {
-    console.log();
     if (this.state.suunta === ylös) {
-      this.setState({ suunta: null });
       this.primaryInterval();
+      this.setState({ suunta: null });
     }
   };
   handleRight = () => {
-    console.log();
     if (this.state.suunta === oikea) {
-      this.setState({ suunta: null });
       this.primaryInterval();
+      this.setState({ suunta: null });
     }
   };
   handleDown = () => {
-    console.log();
     if (this.state.suunta === alas) {
-      this.setState({ suunta: null });
       this.primaryInterval();
+      this.setState({ suunta: null });
     }
   };
   handleLeft = () => {
-    console.log();
     if (this.state.suunta === vasen) {
-      this.setState({ suunta: null });
       this.primaryInterval();
+      this.setState({ suunta: null });
     }
   };
   primaryInterval = () => {
-    setTimeout(this.addArrow(), 10000, []);
-    console.log();
+    setTimeout(this.addArrow, Math.floor(Math.random() * (3000 - 500)) + 500);
+    //this.addArrow();
   };
 
   addArrow = () => {
+    //console.log("f");
     const randomIndex = Math.floor(Math.random() * 4);
     const nuoli = suunnat[randomIndex];
     this.setState({ suunta: nuoli }); // valitse randomilla
   };
 
   render() {
-    console.log();
     return (
       <div className="container">
         <div className="cards">
@@ -116,5 +110,5 @@ class App extends Component {
     );
   }
 }
-
+console.log();
 export default App;

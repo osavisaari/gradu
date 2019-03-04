@@ -4,11 +4,12 @@
   background-color: white;
   height: auto;
   width: auto;
+  padding: 15px;
   align-items: flex-end;
   grid-template-areas: "left middle right";
 }
 .container {
-  height: 100vh;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -27,7 +28,7 @@
   z-index: 0;
 }
 .square-container {
-  margin: 0 0 100px 50px;
+  margin: 0 0 50px 50px;
   display: flex;
   flex-direction: column;
 }
