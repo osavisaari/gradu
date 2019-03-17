@@ -16,7 +16,12 @@
 }
 .card {
   margin: 5px;
+  visibility: visible;
 }
+/*.card.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: 
+}*/
 .square {
   display: flex;
   /*  align-self: auto;*/

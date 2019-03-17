@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "./animate.css";
 import A from "./assets/A.svg";
 import B from "./assets/B.svg";
 import C from "./assets/C.svg";
@@ -9,26 +10,42 @@ import oikea from "./assets/oikea.svg";
 import vasen from "./assets/vasen.svg";
 import ylös from "./assets/ylös.svg";
 import alas from "./assets/alas.svg";
-/*miten mä tuon fiksusti kaikki tarvittavat ärsykekuvat tähän?
-Tarttis helpon tavan tuoda kansion sisältö yhteen arrayyn */
+import { fadeIn } from "react-animations";
+import { fadeOut } from "react-animations";
+import { slideInRight } from "react-animations";
+import { slideOutRight } from "react-animations";
+import { zoomIn } from "react-animations";
+import { zoomOut } from "react-animations";
+/*miten mä tuon fiksusti kaikki tarvittavat ärsykekuvat tähän?*/
 
-const suunnat = [oikea, vasen, ylös, alas];
+const suunnat = [vasen, oikea, ylös, alas];
 const ESCAPE_KEY = 27;
 const UP = 38;
 const DOWN = 40;
 const LEFT = 37;
 const RIGHT = 39;
+const cards = [A, B, C, D, E];
+const animations = [
+  fadeIn,
+  fadeOut,
+  slideInRight,
+  slideOutRight,
+  zoomIn,
+  zoomOut
+];
 
 class App extends Component {
   state = {
-    suunta: oikea
+    suunta: suunnat[Math.floor(Math.random() * suunnat.length)],
+    kortti: cards[Math.floor(Math.random() * cards.length)]
   };
 
   handleKeyDown = event => {
     // eslint-disable-next-line
+    // self.keypresslog.append([system.timems(),event.keyCode])
     switch (event.keyCode) {
       case ESCAPE_KEY:
-        this.addArrow();
+        this.animateCard();
         break;
       case UP:
         this.handleUp();
@@ -47,8 +64,6 @@ class App extends Component {
 
   componentDidMount() {
     document.addEventListener("keydown", this.handleKeyDown);
-    //    const intervalId = setInterval(this.timer, 1000);
-    //    this.setState({ intervalId: intervalId });
   }
 
   componentWillUnmount() {
@@ -57,35 +72,44 @@ class App extends Component {
 
   handleUp = () => {
     if (this.state.suunta === ylös) {
-      this.primaryInterval();
       this.setState({ suunta: null });
+      this.primaryInterval();
     }
   };
   handleRight = () => {
     if (this.state.suunta === oikea) {
-      this.primaryInterval();
       this.setState({ suunta: null });
+      this.primaryInterval();
     }
   };
   handleDown = () => {
     if (this.state.suunta === alas) {
-      this.primaryInterval();
       this.setState({ suunta: null });
+      this.primaryInterval();
     }
   };
   handleLeft = () => {
     if (this.state.suunta === vasen) {
-      this.primaryInterval();
       this.setState({ suunta: null });
+      this.primaryInterval();
     }
   };
-  primaryInterval = () => {
-    setTimeout(this.addArrow, Math.floor(Math.random() * (3000 - 500)) + 500);
-    //this.addArrow();
+  animateCard = () => {
+    const randomIndex = Math.floor(Math.random() * 5);
+    const nextCard = cards[randomIndex];
+    this.setState({ kortti: nextCard });
+    console.log("jes");
+    console.log(this.state.kortti);
   };
 
+  primaryInterval = () => {
+    setTimeout(this.addArrow, Math.floor(Math.random() * (2000 - 500)) + 500);
+    //this.addArrow();
+  };
+  /* secondaryInterval = () => {
+    setTimeout(this.addArrow, Math.floor(Math.random() * (3000 - 500)) + 500); */
+
   addArrow = () => {
-    //console.log("f");
     const randomIndex = Math.floor(Math.random() * 4);
     const nuoli = suunnat[randomIndex];
     this.setState({ suunta: nuoli }); // valitse randomilla
