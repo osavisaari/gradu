@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import "./animate.css";
-import { Animated } from "react-animated-css";
 import A from "./assets/A.svg";
 import B from "./assets/B.svg";
 import C from "./assets/C.svg";
@@ -27,8 +26,8 @@ const DOWN = 40;
 const LEFT = 37;
 const RIGHT = 39;
 const cards = [A, B, C, D, E];
-const animationIn = [fadeIn, slideInRight, zoomIn];
-const animationOut = [fadeOut, slideOutRight, zoomOut];
+const animationIn = [fadeIn, slideInRight, zoomIn]; //Tässä on animaatiot, jotka tuo kortit näkyviin
+const animationOut = [fadeOut, slideOutRight, zoomOut]; //Nämä animaatiot vie kortit näkyvistä
 
 class App extends Component {
   state = {
@@ -111,20 +110,21 @@ class App extends Component {
   };
   animateIn = () => {
     const randomIndex = Math.floor(Math.random() * this.animationIn.length);
-    const AnimateIn = this.animationIn[randomIndex];
+    const AnimateIn = this.animationIn[randomIndex]; //Tän avulla on tarkoitus arpoa käytettävä animaatio, mutta miten se animaatio saadaan näkymään?
     console.log("jes");
   };
   animateOut = () => {
     const randomIndex = Math.floor(Math.random() * this.animationOut.length);
-    const animationOut = this.animationOut[randomIndex];
+    const animationOut = this.animationOut[randomIndex]; //Tän avulla on tarkoitus arpoa käytettävä animaatio, mutta miten se animaatio saadaan näkymään?
     console.log("juu");
   };
 
   chooseCard = () => {
-    const randomIndex = Math.floor(Math.random() * cards.length);
+    const randomIndex = Math.floor(Math.random() * cards.length); //Tämä arpoo sen kortin, joka animoidaan
     this.setState({ card: cards[randomIndex] });
     this.updateCard();
   };
+  //Tän koko osion tarkotus oli siis hallita kunkin kortin statea ja sen avulla animaatioita, mutta jäi kesken eikä varmaan toimi halutulla tavalla muutenkaan..
   updateCard = () => {
     if (this.state.card === 0 && this.state.A === true) {
       this.setState.A = false;
@@ -164,43 +164,19 @@ class App extends Component {
       <div className="container">
         <div className="card-container">
           <div className="cards">
-            <Animated
-              animationIn="fadeIn"
-              animationOut="zoomOutDown"
-              isVisible={false}
-            >
+            <div className="card">
               <img src={A} alt="A" />
-            </Animated>
-            <div
-              className="B"
-              animationIn={this.nextAnimation}
-              animationOut={this.nextAnimation}
-              isVisible={true}
-            >
+            </div>
+            <div className="card">
               <img src={B} alt="B" />
             </div>
-            <div
-              className="C"
-              animationIn={this.nextAnimation}
-              animationOut={this.nextAnimation}
-              isVisible={true}
-            >
+            <div className="card">
               <img src={C} alt="C" />
             </div>
-            <div
-              className="D"
-              animationIn={this.nextAnimation}
-              animationOut={this.nextAnimation}
-              isVisible={false}
-            >
+            <div className="card">
               <img src={D} alt="D" />
             </div>
-            <div
-              className="E"
-              animationIn={this.nextAnimation}
-              animationOut={this.nextAnimation}
-              isVisible={false}
-            >
+            <div className="card">
               <img src={E} alt="E" />
             </div>
           </div>
