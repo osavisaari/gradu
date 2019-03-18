@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import "./animate.css";
+import { Animated } from "react-animated-css";
 import A from "./assets/A.svg";
 import B from "./assets/B.svg";
 import C from "./assets/C.svg";
@@ -20,24 +21,24 @@ import { zoomOut } from "react-animations";
 
 const suunnat = [vasen, oikea, ylös, alas];
 const ESCAPE_KEY = 27;
+const CTRL = 17;
 const UP = 38;
 const DOWN = 40;
 const LEFT = 37;
 const RIGHT = 39;
 const cards = [A, B, C, D, E];
-const animations = [
-  fadeIn,
-  fadeOut,
-  slideInRight,
-  slideOutRight,
-  zoomIn,
-  zoomOut
-];
+const animationIn = [fadeIn, slideInRight, zoomIn];
+const animationOut = [fadeOut, slideOutRight, zoomOut];
 
 class App extends Component {
   state = {
     suunta: suunnat[Math.floor(Math.random() * suunnat.length)],
-    kortti: cards[Math.floor(Math.random() * cards.length)]
+    card: cards[Math.floor(Math.random() * cards.length)],
+    A: true,
+    B: true,
+    C: true,
+    D: true,
+    E: true
   };
 
   handleKeyDown = event => {
@@ -45,7 +46,10 @@ class App extends Component {
     // self.keypresslog.append([system.timems(),event.keyCode])
     switch (event.keyCode) {
       case ESCAPE_KEY:
-        this.animateCard();
+        this.animateIn();
+        break;
+      case CTRL:
+        this.animateOut();
         break;
       case UP:
         this.handleUp();
@@ -94,36 +98,112 @@ class App extends Component {
       this.primaryInterval();
     }
   };
-  animateCard = () => {
-    const randomIndex = Math.floor(Math.random() * 5);
-    const nextCard = cards[randomIndex];
-    this.setState({ kortti: nextCard });
-    console.log("jes");
-    console.log(this.state.kortti);
-  };
-
   primaryInterval = () => {
     setTimeout(this.addArrow, Math.floor(Math.random() * (2000 - 500)) + 500);
     //this.addArrow();
   };
-  /* secondaryInterval = () => {
-    setTimeout(this.addArrow, Math.floor(Math.random() * (3000 - 500)) + 500); */
 
   addArrow = () => {
     const randomIndex = Math.floor(Math.random() * 4);
     const nuoli = suunnat[randomIndex];
     this.setState({ suunta: nuoli }); // valitse randomilla
+    this.chooseCard();
+  };
+  animateIn = () => {
+    const randomIndex = Math.floor(Math.random() * this.animationIn.length);
+    const AnimateIn = this.animationIn[randomIndex];
+    console.log("jes");
+  };
+  animateOut = () => {
+    const randomIndex = Math.floor(Math.random() * this.animationOut.length);
+    const animationOut = this.animationOut[randomIndex];
+    console.log("juu");
+  };
+
+  chooseCard = () => {
+    const randomIndex = Math.floor(Math.random() * cards.length);
+    this.setState({ card: cards[randomIndex] });
+    this.updateCard();
+  };
+  updateCard = () => {
+    if (this.state.card === 0 && this.state.A === true) {
+      this.setState.A = false;
+      this.animateOut();
+    } else if (this.state.card === 0 && this.state.A === false) {
+      this.setState.A = true;
+      this.animateIn();
+    } else if (this.state.card === 1 && this.state.B === true) {
+      this.setState.B = false;
+      this.animateOut();
+    } else if (this.state.card === 1 && this.state.B === false) {
+      this.setState.B = true;
+      this.animateIn();
+    } else if (this.state.card === 2 && this.state.C === true) {
+      this.setState.C = false;
+      this.animateOut();
+    } else if (this.state.card === 2 && this.state.C === false) {
+      this.setState.C = true;
+      this.animateIn();
+    } else if (this.state.card === 3 && this.state.D === true) {
+      this.setState.D = false;
+      this.animateOut();
+    } else if (this.state.card === 3 && this.state.D === false) {
+      this.setState.D = true;
+      this.animateIn();
+    } else if (this.state.card === 4 && this.state.E === true) {
+      this.setState.E = false;
+      this.animateOut();
+    } else if (this.state.card === 4 && this.state.E === false) {
+      this.setState.E = true;
+      this.animateIn();
+    }
   };
 
   render() {
     return (
       <div className="container">
-        <div className="cards">
-          <img src={A} className="card" alt="A" />
-          <img src={B} className="card" alt="B" />
-          <img src={C} className="card" alt="C" />
-          <img src={D} className="card" alt="D" />
-          <img src={E} className="card" alt="E" />
+        <div className="card-container">
+          <div className="cards">
+            <Animated
+              animationIn="fadeIn"
+              animationOut="zoomOutDown"
+              isVisible={false}
+            >
+              <img src={A} alt="A" />
+            </Animated>
+            <div
+              className="B"
+              animationIn={this.nextAnimation}
+              animationOut={this.nextAnimation}
+              isVisible={true}
+            >
+              <img src={B} alt="B" />
+            </div>
+            <div
+              className="C"
+              animationIn={this.nextAnimation}
+              animationOut={this.nextAnimation}
+              isVisible={true}
+            >
+              <img src={C} alt="C" />
+            </div>
+            <div
+              className="D"
+              animationIn={this.nextAnimation}
+              animationOut={this.nextAnimation}
+              isVisible={false}
+            >
+              <img src={D} alt="D" />
+            </div>
+            <div
+              className="E"
+              animationIn={this.nextAnimation}
+              animationOut={this.nextAnimation}
+              isVisible={false}
+            >
+              <img src={E} alt="E" />
+            </div>
+          </div>
         </div>
         <div className="square-container">
           <div className="square">

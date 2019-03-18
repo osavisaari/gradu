@@ -1,4 +1,10 @@
-.cards {
+.container {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-container {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -8,23 +14,20 @@
   align-items: flex-end;
   grid-template-areas: "left middle right";
 }
-.container {
-  height: 95vh;
+.cards {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .card {
   margin: 5px;
-  visibility: visible;
 }
-/*.card.fadeOut {
-  -webkit-animation-name: fadeOut;
-  animation-name: 
-}*/
+.card-hidden {
+  margin: -500px;
+  animation: slideOutRight 500ms;
+}
+
 .square {
   display: flex;
-  /*  align-self: auto;*/
   justify-content: center;
   width: 150px;
   height: 150px;
@@ -37,18 +40,6 @@
   display: flex;
   flex-direction: column;
 }
-
-.arrow {
-  width: 100px;
-  height: 100px;
-}
-/*.img {
-  z-index: 1;
-  background: url(A.png);
-  margin: auto;
-  width: auto;
-  height: auto;
-}*/
 .p {
   align-self: center;
   margin: auto;
