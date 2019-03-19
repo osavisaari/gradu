@@ -10,6 +10,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .card-container {
   display: flex;
   flex-direction: column;
@@ -20,6 +21,7 @@ html {
   align-items: flex-end;
   grid-template-areas: 'left middle right';
 }
+
 .cards {
   display: flex;
   flex-direction: column;
@@ -30,20 +32,6 @@ html {
   animation: slideOutRight 500ms;
 }
 
-.square {
-  display: flex;
-  justify-content: center;
-  width: 150px;
-  height: 150px;
-  fill: white;
-  border: 2px solid black;
-  z-index: 0;
-}
-.square-container {
-  margin: 0 0 50px 50px;
-  display: flex;
-  flex-direction: column;
-}
 .p {
   align-self: center;
   margin: auto;

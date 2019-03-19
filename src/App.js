@@ -17,6 +17,8 @@ import { slideOutRight } from 'react-animations'
 import { zoomIn } from 'react-animations'
 import { zoomOut } from 'react-animations'
 import Card from './components/Card'
+import ArrowSquare from './components/ArrowSquare'
+
 /*miten mä tuon fiksusti kaikki tarvittavat ärsykekuvat tähän?*/
 
 const suunnat = [vasen, oikea, ylös, alas]
@@ -41,31 +43,6 @@ class App extends Component {
     E: true
   }
 
-  handleKeyDown = event => {
-    // eslint-disable-next-line
-    // self.keypresslog.append([system.timems(),event.keyCode])
-    switch (event.keyCode) {
-      case ESCAPE_KEY:
-        this.animateIn()
-        break
-      case CTRL:
-        this.animateOut()
-        break
-      case UP:
-        this.handleUp()
-        break
-      case DOWN:
-        this.handleDown()
-        break
-      case LEFT:
-        this.handleLeft()
-        break
-      case RIGHT:
-        this.handleRight()
-        break
-    }
-  }
-
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyDown)
   }
@@ -74,46 +51,12 @@ class App extends Component {
     document.removeEventListener('keydown', this.handleKeyDown)
   }
 
-  handleUp = () => {
-    if (this.state.suunta === ylös) {
-      this.setState({ suunta: null })
-      this.primaryInterval()
-    }
-  }
-  handleRight = () => {
-    if (this.state.suunta === oikea) {
-      this.setState({ suunta: null })
-      this.primaryInterval()
-    }
-  }
-  handleDown = () => {
-    if (this.state.suunta === alas) {
-      this.setState({ suunta: null })
-      this.primaryInterval()
-    }
-  }
-  handleLeft = () => {
-    if (this.state.suunta === vasen) {
-      this.setState({ suunta: null })
-      this.primaryInterval()
-    }
-  }
-  primaryInterval = () => {
-    setTimeout(this.addArrow, Math.floor(Math.random() * (2000 - 500)) + 500)
-    //this.addArrow();
-  }
-
-  addArrow = () => {
-    const randomIndex = Math.floor(Math.random() * 4)
-    const nuoli = suunnat[randomIndex]
-    this.setState({ suunta: nuoli }) // valitse randomilla
-    this.chooseCard()
-  }
   animateIn = () => {
     const randomIndex = Math.floor(Math.random() * this.animationIn.length)
     const AnimateIn = this.animationIn[randomIndex] //Tän avulla on tarkoitus arpoa käytettävä animaatio, mutta miten se animaatio saadaan näkymään?
     console.log('jes')
   }
+
   animateOut = () => {
     const randomIndex = Math.floor(Math.random() * this.animationOut.length)
     const animationOut = this.animationOut[randomIndex] //Tän avulla on tarkoitus arpoa käytettävä animaatio, mutta miten se animaatio saadaan näkymään?
@@ -172,11 +115,7 @@ class App extends Component {
             <Card text={'E'} />
           </div>
         </div>
-        <div className="square-container">
-          <div className="square">
-            {this.state.suunta && <img src={this.state.suunta} alt="arrow" />}
-          </div>
-        </div>
+        <ArrowSquare />
       </div>
     )
   }

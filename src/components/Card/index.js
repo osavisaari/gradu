@@ -1,5 +1,4 @@
 import React from 'react'
-import A from '../../assets/A.svg'
 import './styles.scss'
 
 const Card = props => {
