@@ -24,3 +24,26 @@ Tämän jälkeen löydät koeasetelman täältä:
 - ESC vaihtaa alakulmassa olevaa nuolta
 - Keyboard UP ylös osoittavan nuolen kohdalla tulkitaan oikeaksi vastaukseksi -> nuoli häviää
 - ESCillä saa uuden nuolen näkyviin
+
+```
+{
+  "currentKey": "DOWN",
+  "timestamp": ""
+}
+```
+
+```
+{
+  "keyResponse" "DOWN"
+  "timestamp": "",
+}
+```
+
+```
+{
+  "card": "A",
+  "animationType": "",
+  "reactionTime": 200,
+  "timestamp": ""
+}
+```

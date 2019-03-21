@@ -9,18 +9,15 @@ import {
 import useTimeout from 'use-timeout'
 import './styles.scss'
 
-// window.performance.now() käytä ajan mittaamiseen
-const ArrowSquare = props => {
+const HIDE = -1
+const UP = 38
+const DOWN = 40
+const LEFT = 37
+const RIGHT = 39
+
+const ArrowSquare = () => {
   const [currentKey, setCurrentKey] = useState(HIDE)
   const [delay, setDelay] = useState(3000) // 3 sek
-
-  const HIDE = -1
-  const ESCAPE = 27
-  const CTRL = 17
-  const UP = 38
-  const DOWN = 40
-  const LEFT = 37
-  const RIGHT = 39
 
   useEffect(() => {
     window.addEventListener('keydown', downHandler)
@@ -38,7 +35,7 @@ const ArrowSquare = props => {
     if (keyCode === currentKey) {
       setCurrentKey(HIDE)
       console.log('oikein')
-    } else {
+    } else if ([UP, DOWN, LEFT, RIGHT].includes(keyCode)) {
       console.log('väärin')
     }
   }
