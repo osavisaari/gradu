@@ -17,8 +17,16 @@ Kunkin osion aikana suoritetaan kahta tehtävää:
 
 2. Sekundaaritehtävää, jonka avulla selvitetään miten eri animaatiotyypit kaappaa visuaalisen tarkkaavaisuuden. Jälkimmäinen on gradun varsinainen aihe ja mielenkiinnon kohde. Tämä toteutetaan korttien (A-E) avulla. Koehenkilön tehtävä on aina muutoksen nähdessään painaa reaktioaikakytkintä (F) ja raportoida suullisesti viimeksi näkemänsä muutos. Animaatioita on kolmen tyyppisiä: Fade, Zoom ja Slide. Jokainen esiintyy sekä In että Out -animaatioina. Animaatiot pitää siis randomisoida, ja niille pitää tehdä jonkinlainen timer, minkä avulla ne ilmestyy ruudulle.
 
-\*Ajo-ohjeet:
+Pyörittääksesi projektia sinulla pitää olla `node` ja `npm` asennettuna koneelle.
 
-- npm start -> käynnistyy selaimessa
-- nuolinäppäintä painamalla saadaan esiin uusi nuoli (tähän pitää tehdä napin painalluksesta riippumaton timer)
-- \*\*\*Projektissa on importattuna erilaisia kirjastoja animaatioiden toteuttamiseksi. Kaikkia näitä tuskin tarvitaan.
+Asennus:
+
+`npm install`
+
+Käynnistys:
+
+`npm start`
+
+Tämän jälkeen löydät koeasetelman täältä:
+
+`localhost:3000/`
