@@ -13,6 +13,7 @@
     "react-dom": "^16.8.4",
     "react-motion": "^0.5.2",
     "react-scripts": "^2.1.8",
+    "react-transition-group": "^2.7.0",
     "use-timeout": "^1.0.0"
   },
   "scripts": {

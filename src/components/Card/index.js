@@ -1,13 +1,16 @@
-import React from 'react'
-import './styles.scss'
+import React, { useState } from "react";
+import "./card.scss";
+import "../../animate.css";
 
-const Card = props => {
-  const { text } = props
+const Card = ({ text, animationClass, toggle }) => {
+  // const [toggle, setToggle] = useState(false);
+  const className = toggle ? `card ${animationClass}` : "card";
+
   return (
-    <div className="card">
+    <div className={className} onClick={toggle}>
       <p>{text}</p>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
