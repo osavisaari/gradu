@@ -1,19 +1,31 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card";
-import useTimeout from "use-timeout";
+import TransitionGroup from "react-transition-group/TransitionGroup";
+import CardContainer from "../CardContainer";
+import {
+  FADE_IN,
+  FADE_OUT,
+  ZOOM_IN,
+  ZOOM_OUT,
+  SLIDE_DOWN,
+  SLIDE_UP
+} from "../../constants/animations";
+
+import Zoom from "react-reveal/Zoom";
+import Slide from "react-reveal/Slide";
+import Fade from "react-reveal/Fade";
 import "../../animate.css";
-import animations from "../Card/card.scss";
+import "./styles.scss";
 
 const F_KEY = 70;
 
 const CardsContainer = () => {
-  const [delay, setDelay] = useState(10000); // 10 sek
   const [cards, setCards] = useState([
-    { title: "A", animationClass: "slideOutRight" },
-    { title: "B", animationClass: "slideOutRight" },
-    { title: "C", animationClass: "slideOutRight" },
-    { title: "D", animationClass: "slideOutRight" },
-    { title: "E", animationClass: "slideOutRight" }
+    { title: "A", animationClass: FADE_OUT },
+    { title: "B", animationClass: SLIDE_DOWN },
+    { title: "C", animationClass: ZOOM_OUT },
+    { title: "D", animationClass: FADE_OUT },
+    { title: "E", animationClass: FADE_OUT }
   ]);
 
   useEffect(() => {
@@ -36,6 +48,21 @@ const CardsContainer = () => {
     }
   };
 
+  const removeCard = title => {
+    setCards(cards.filter(card => title !== card.title));
+    console.log(cards);
+  };
+
+  const addCard = () => {
+    const oneMore = [
+      ...cards.slice(0, 2),
+      { title: "U", animationClass: "" },
+      ...cards.slice(2, 5)
+    ];
+    setCards(oneMore);
+    console.log(oneMore);
+  };
+
   const animate = () => {
     setCards([
       { title: "B", animationClass: "slideOutRight" },
@@ -50,16 +77,94 @@ const CardsContainer = () => {
 
   return (
     <div className="card-container">
-      <div className="testi">testi</div>
       <div className="cards">
-        {cards.map(card => (
-          <Card
-            key={card.title}
-            text={card.title}
-            animationClass={card.animationClass}
-            toggle={() => animate()}
-          />
-        ))}
+        <TransitionGroup enter exit>
+          {cards.map(card => {
+            const { animationClass, title } = card;
+            if (animationClass === FADE_OUT) {
+              return (
+                <Fade key={title} collapse>
+                  <Card
+                    key={card.title}
+                    text={card.title}
+                    animationClass={card.animationClass}
+                    onRemove={removeCard}
+                  />
+                </Fade>
+              );
+            }
+            if (animationClass === FADE_IN) {
+              return (
+                <Fade key={title}>
+                  <Card
+                    key={card.title}
+                    text={card.title}
+                    animationClass={card.animationClass}
+                    onRemove={removeCard}
+                  />
+                </Fade>
+              );
+            }
+            if (animationClass === ZOOM_IN) {
+              return (
+                <Zoom key={title}>
+                  <Card
+                    key={card.title}
+                    text={card.title}
+                    animationClass={card.animationClass}
+                    onRemove={removeCard}
+                  />
+                </Zoom>
+              );
+            }
+            if (animationClass === ZOOM_OUT) {
+              return (
+                <Zoom key={title} collapse>
+                  <Card
+                    key={card.title}
+                    text={card.title}
+                    animationClass={card.animationClass}
+                    onRemove={removeCard}
+                  />
+                </Zoom>
+              );
+            }
+
+            if (animationClass === SLIDE_UP) {
+              return (
+                <Slide key={title} collapse>
+                  <Card
+                    key={card.title}
+                    text={card.title}
+                    animationClass={card.animationClass}
+                    onRemove={removeCard}
+                  />
+                </Slide>
+              );
+            }
+
+            if (animationClass === SLIDE_DOWN) {
+              return (
+                <Slide key={title} collapse right>
+                  <Card
+                    key={card.title}
+                    text={card.title}
+                    animationClass={card.animationClass}
+                    onRemove={removeCard}
+                  />
+                </Slide>
+              );
+            }
+            return (
+              <Card
+                key={card.title}
+                text={card.title}
+                animationClass={card.animationClass}
+                onRemove={removeCard}
+              />
+            );
+          })}
+        </TransitionGroup>
       </div>
     </div>
   );

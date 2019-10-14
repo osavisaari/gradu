@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./card.scss";
-import "../../animate.css";
 
-const Card = ({ text, animationClass, toggle }) => {
-  // const [toggle, setToggle] = useState(false);
-  const className = toggle ? `card ${animationClass}` : "card";
-
+const Card = ({ text, onRemove }) => {
   return (
-    <div className={className} onClick={toggle}>
+    <div className="card" onClick={() => onRemove(text)}>
       <p>{text}</p>
     </div>
   );
