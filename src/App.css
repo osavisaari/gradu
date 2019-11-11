@@ -4,15 +4,36 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.card-container {
+
+.animation-view-container {
   display: flex;
-  flex-direction: column-reverse;
-  background-color: white;
-  height: auto;
-  width: auto;
+  justify-content: space-between;
+}
+
+.animation-block-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.animation-keys {
+  padding: 15px 0;
+  padding-right: 0px;
+}
+
+.animation-key {
+  width: 50px;
+  background-color: #e1e1e1;
+  text-align: center;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.cards-container {
   padding: 15px;
-  align-items: flex-end;
-  grid-template-areas: "left middle right";
 }
 .cards {
   display: flex;

@@ -1,14 +1,11 @@
-export const FADE_IN = "FADE_IN";
-export const FADE_OUT = "FADE_OUT";
-export const ZOOM_IN = "ZOOM_IN";
-export const ZOOM_OUT = "ZOOM_OUT";
-export const SLIDE_UP = "SLIDE_UP";
-export const SLIDE_DOWN = "SLIDE_DOWN";
+export const FADE = "FADE";
+export const ZOOM = "ZOOM";
+export const SLIDE = "SLIDE";
+export const NO_ANIMATION = "NO_ANIMATION";
 
-export const randomIn = [FADE_IN, ZOOM_IN, SLIDE_UP][
-  Math.floor(Math.random() * 2) + 0
-];
-
-export const randomOut = [FADE_OUT, ZOOM_OUT, SLIDE_DOWN][
-  Math.floor(Math.random() * 2) + 0
-];
+export const NO_ANIMATION_BLOCK = "NO_ANIMATION_BLOCK";
+export const ZOOM_ANIMATION_BLOCK = "ZOOM_ANIMATION_BLOCK";
+export const FADE_ANIMATION_BLOCK = "FADE_ANIMATION_BLOCK";
+export const SLIDE_ANIMATION_BLOCK = "SLIDE_ANIMATION_BLOCK";
+export const RANDOM_ANIMATION_BLOCK = "RANDOM_ANIMATION_BLOCK";
+export const PAUSE_ANIMATION_BLOCK = "PAUSE_ANIMATION_BLOCK";
