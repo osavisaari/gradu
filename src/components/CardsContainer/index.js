@@ -26,7 +26,7 @@ const SPACE_KEY = 32;
 
 const HOW_MANY_ANIMATIONS_IN_BLOCK = 50;
 
-const CardsContainer = () => {
+const CardsContainer = props => {
   const delay = ms => new Promise(res => setTimeout(res, ms));
 
   const getAnimationOrder = () => {
@@ -120,8 +120,7 @@ const CardsContainer = () => {
 
   const keyboardHandler = ({ keyCode }) => {
     if (keyCode === F_KEY) {
-      const milliseconds = new Date().getTime();
-      console.log(milliseconds);
+      props.addUserAnimationReactionTime({ date: new Date() });
     } else if (keyCode === SPACE_KEY) {
       const block = scheme[currentAnimationBlock].block;
       if (block === PAUSE_ANIMATION_BLOCK) {
@@ -141,13 +140,21 @@ const CardsContainer = () => {
   };
 
   const animate = async (animation, removed) => {
+    const animationData = {};
+    animationData.type = animation;
+    animationData.startPosition = removed + 1;
     const { position } = getNewPosition(removed);
+    animationData.endPosition = position + 1;
     const removedCard = cards[removed];
     await addAnimationToKey(removedCard.title, animation);
     removedCard.animationClass = animation;
     await delay(1000);
     const listWithoutRemovedCard = cards.filter(
       e => e.title !== removedCard.title
+    );
+    animationData.outAnimationStartTime = new Date();
+    animationData.outAnimationEndTime = new Date(
+      animationData.outAnimationStartTime.getTime() + 500
     );
     await setCards(listWithoutRemovedCard);
     await delay(500);
@@ -156,8 +163,12 @@ const CardsContainer = () => {
       removedCard,
       ...listWithoutRemovedCard.slice(position, listWithoutRemovedCard.length)
     ];
+    animationData.inAnimationStartTime = new Date();
+    animationData.inAnimationEndTime = new Date(
+      animationData.inAnimationStartTime.getTime() + 500
+    );
     await setCards([...listWithRemovedCard]);
-    await delay(1000);
+    props.addAnimations(animationData);
   };
 
   const currentBlock = scheme[currentAnimationBlock].block;
