@@ -7,6 +7,7 @@ import {
   faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
 import useTimeout from "use-timeout";
+
 import "./styles.scss";
 
 const HIDE = -1;
@@ -16,17 +17,18 @@ const LEFT = 37;
 const RIGHT = 39;
 let keyLog = [];
 
-const ArrowSquare = () => {
+const ArrowSquare = props => {
   const [currentKey, setCurrentKey] = useState(HIDE);
   const [delay, setDelay] = useState(3000); // 3 sek
+  const [pressed, setPressed] = useState(false);
+
+  const { addUserPress, addArrowChange } = props;
 
   useEffect(() => {
     window.addEventListener("keydown", downHandler);
     return () => {
       window.removeEventListener("keydown", downHandler);
     };
-    /* Miten rajoittaa vastaukset vain yhteen / nuoli? Aiheuttaa hirveesti sotkua *
-    jos jengi painelee vahingossa ylimääräisiä responsseja*/
   });
 
   useTimeout(() => {
@@ -34,20 +36,23 @@ const ArrowSquare = () => {
     changeArrow();
   }, delay);
 
-  const downHandler = ({ keyCode }) => {
+  const downHandler = async ({ keyCode }) => {
     keyLog.push(keyCode);
-    if (keyCode === currentKey) {
-      console.log("oikein");
-    } else if ([UP, DOWN, LEFT, RIGHT].includes(keyCode)) {
-      console.log("väärin");
+    if (keyCode === currentKey && !pressed) {
+      addUserPress({ date: new Date(), answer: true });
+      setPressed(true);
+    } else if ([UP, DOWN, LEFT, RIGHT].includes(keyCode) && !pressed) {
+      addUserPress({ date: new Date(), answer: false });
+      setPressed(true);
     }
-    console.log(keyLog);
   };
 
   const changeArrow = () => {
     const keys = [UP, DOWN, LEFT, RIGHT].filter(key => key !== currentKey);
     const key = keys[Math.floor(Math.random() * keys.length)];
     setCurrentKey(key);
+    addArrowChange({ date: new Date(), key });
+    setPressed(false);
   };
 
   return (
