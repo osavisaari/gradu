@@ -1,0 +1,4 @@
+.arrowMarkers {
+  display: flex;
+  flex-direction: column;
+}

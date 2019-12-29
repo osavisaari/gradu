@@ -7,13 +7,14 @@
 
 .animation-view-container {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  margin: 0px 50px 200px 50px;
 }
 
 .animation-block-container {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  align-self: flex-end;
 }
 
 .animation-keys {
@@ -35,6 +36,7 @@
 
 .cards-container {
   padding: 15px;
+  align-self: flex-end;
 }
 .cards {
   display: flex;
@@ -58,6 +60,24 @@
 }
 .square-container {
   margin: 0 0 50px 50px;
+  width: fit-content;
   display: flex;
   flex-direction: column;
+}
+
+.arrowsY {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 330px;
+  margin-left: 50px;
+}
+.arrowsX {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 300px;
+  bottom: 95px;
+  z-index: 3;
+  size: 50px;
 }
