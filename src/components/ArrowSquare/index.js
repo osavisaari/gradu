@@ -32,7 +32,7 @@ const ArrowSquare = props => {
   });
 
   useTimeout(() => {
-    setDelay(Math.random() * 2500 + 800); // 800 - 2500 msec
+    setDelay(Math.random() * 2500 + 1000); // 800 - 2500 msec
     changeArrow();
   }, delay);
 
