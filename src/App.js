@@ -6,6 +6,8 @@ import CardsContainer from "./components/CardsContainer";
 import DownloadButton from "./components/DownloadButton";
 import arrowsX from "./components/markers/arrowsX.png";
 import arrowsY from "./components/markers/arrowsY.png";
+import cardsX from "./components/markers/cardsX.png";
+import cardsY from "./components/markers/cardsY.png";
 
 function App() {
   const [arrows, setArrows] = useState([]);
@@ -32,16 +34,20 @@ function App() {
   return (
     <>
       <div className="container">
+        <div className="cardsX">
+          <img src={cardsX} width="50px" alt="" />
+        </div>
         <CardsContainer
           addUserAnimationReactionTime={addUserAnimationReactionTime}
           addAnimations={addAnimations}
         />
-        {/* <div className="arrowMarkers"> */}
+        <div className="cardsY">
+          <img src={cardsY} width="50px" alt="" />
+        </div>
         <div className="arrowsY">
           <img src={arrowsY} width="50px" alt="" />
         </div>
 
-        {/* </div> */}
         <ArrowSquare
           addUserPress={addUserPress}
           addArrowChange={addArrowChange}

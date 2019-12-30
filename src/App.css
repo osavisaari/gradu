@@ -69,15 +69,29 @@
   width: 50px;
   height: 50px;
   position: absolute;
-  bottom: 330px;
-  margin-left: 50px;
+  bottom: 325px;
+  margin-left: 10px;
 }
 .arrowsX {
   width: 50px;
   height: 50px;
   position: absolute;
-  left: 300px;
-  bottom: 95px;
+  left: 275px;
+  bottom: 10px;
   z-index: 3;
   size: 50px;
+}
+.cardsX {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 400px;
+  top: 10px;
+}
+.cardsY {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 10px;
+  top: 350px;
 }
