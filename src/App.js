@@ -8,7 +8,8 @@ import arrowsX from "./components/markers/arrowsX.png";
 import arrowsY from "./components/markers/arrowsY.png";
 import cardsX from "./components/markers/cardsX.png";
 import cardsY from "./components/markers/cardsY.png";
-
+import topRight from "./components/markers/top-right.png";
+import bottomLeft from "./components/markers/bottom-left.png";
 function App() {
   const [arrows, setArrows] = useState([]);
   const [userPress, setUserPress] = useState([]);
@@ -34,27 +35,33 @@ function App() {
   return (
     <>
       <div className="container">
+        <div className="topRight">
+          <img src={topRight} width="60px" alt="" />
+        </div>
         <div className="cardsX">
-          <img src={cardsX} width="50px" alt="" />
+          <img src={cardsX} width="60px" alt="" />
         </div>
         <CardsContainer
           addUserAnimationReactionTime={addUserAnimationReactionTime}
           addAnimations={addAnimations}
         />
         <div className="cardsY">
-          <img src={cardsY} width="50px" alt="" />
+          <img src={cardsY} width="60px" alt="" />
         </div>
         <div className="arrowsY">
-          <img src={arrowsY} width="50px" alt="" />
+          <img src={arrowsY} width="60px" alt="" />
         </div>
 
         <ArrowSquare
           addUserPress={addUserPress}
           addArrowChange={addArrowChange}
         />
+        <div className="bottomLeft">
+          <img src={bottomLeft} width="60px" alt="" />
+        </div>
 
         <div className="arrowsX">
-          <img src={arrowsX} width="50px" alt="" />
+          <img src={arrowsX} width="60px" alt="" />
         </div>
       </div>
       <DownloadButton
