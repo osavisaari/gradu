@@ -36,20 +36,20 @@ function App() {
     <>
       <div className="container">
         <div className="topRight">
-          <img src={topRight} width="60px" alt="" />
+          <img src={topRight} width="75px" alt="" />
         </div>
         <div className="cardsX">
-          <img src={cardsX} width="60px" alt="" />
+          <img src={cardsX} width="75px" alt="" />
         </div>
         <CardsContainer
           addUserAnimationReactionTime={addUserAnimationReactionTime}
           addAnimations={addAnimations}
         />
         <div className="cardsY">
-          <img src={cardsY} width="60px" alt="" />
+          <img src={cardsY} width="75px" alt="" />
         </div>
         <div className="arrowsY">
-          <img src={arrowsY} width="60px" alt="" />
+          <img src={arrowsY} width="75px" alt="" />
         </div>
 
         <ArrowSquare
@@ -57,11 +57,11 @@ function App() {
           addArrowChange={addArrowChange}
         />
         <div className="bottomLeft">
-          <img src={bottomLeft} width="60px" alt="" />
+          <img src={bottomLeft} width="75px" alt="" />
         </div>
 
         <div className="arrowsX">
-          <img src={arrowsX} width="60px" alt="" />
+          <img src={arrowsX} width="75px" alt="" />
         </div>
       </div>
       <DownloadButton
