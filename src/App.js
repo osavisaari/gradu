@@ -11,6 +11,16 @@ import cardsY from "./components/markers/cardsY.png";
 import topRight from "./components/markers/top-right.png";
 import bottomLeft from "./components/markers/bottom-left.png";
 function App() {
+  window.addEventListener(
+    "keydown",
+    function(e) {
+      // space and arrow keys
+      if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+      }
+    },
+    false
+  );
   const [arrows, setArrows] = useState([]);
   const [userPress, setUserPress] = useState([]);
   const [userAnimatonReactionTime, setUserAnimationReactionTime] = useState([]);

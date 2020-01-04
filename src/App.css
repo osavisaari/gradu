@@ -15,12 +15,17 @@
 .animation-block-container {
   display: flex;
   align-self: flex-end;
+  position: absolute;
+  top: 60px;
+  right: 0;
 }
 
 .animation-keys {
   padding: 15px 0;
   padding-right: 0px;
-  padding-top: 50px;
+  position: absolute;
+  right: 310px;
+  top: 0px;
 }
 
 .animation-key {
@@ -37,8 +42,10 @@
 
 .cards-container {
   padding: 15px;
-  padding-right: 50px;
   align-self: flex-end;
+  position: absolute;
+  top: 0;
+  right: 80px;
   justify-content: space-between;
 }
 .cards {
