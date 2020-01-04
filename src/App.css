@@ -16,7 +16,7 @@
   display: flex;
   align-self: flex-end;
   position: absolute;
-  top: 0;
+  top: 60px;
   right: 0;
 }
 
@@ -24,7 +24,8 @@
   padding: 15px 0;
   padding-right: 0px;
   position: absolute;
-  right: 250px;
+  right: 310px;
+  top: 0px;
 }
 
 .animation-key {
@@ -44,11 +45,13 @@
   align-self: flex-end;
   position: absolute;
   top: 0;
-  right: 30px;
+  right: 80px;
+  justify-content: space-between;
 }
 .cards {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 .card {
   margin: 5px;
@@ -67,39 +70,43 @@
   z-index: 0;
 }
 .square-container {
-  margin: 0 0 50px 50px;
+  margin: 0 0 80px 100px;
   width: fit-content;
   display: flex;
   flex-direction: column;
 }
 
 .arrowsY {
-  width: 50px;
-  height: 50px;
   position: absolute;
   bottom: 325px;
-  margin-left: 10px;
+  left: 10px;
 }
 .arrowsX {
-  width: 50px;
-  height: 50px;
   position: absolute;
   left: 275px;
-  bottom: 10px;
+  bottom: 5px;
   z-index: 3;
   size: 50px;
 }
 .cardsX {
-  width: 50px;
-  height: 50px;
   position: absolute;
   right: 400px;
   top: 10px;
 }
 .cardsY {
-  width: 50px;
-  height: 50px;
   position: absolute;
   right: 10px;
   top: 350px;
+}
+.topRight {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.bottomLeft {
+  position: absolute;
+  bottom: 35px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
 }

@@ -18,10 +18,10 @@ const DownloadButton = props => {
       style={{
         backgroundColor: "lightgray",
         WebkitTextStrokeColor: "black",
-        width: "100px",
+        width: "120px",
         position: "absolute",
-        right: "50px",
-        bottom: "100px"
+        right: "10px",
+        bottom: "50px"
       }}
       download
     >
